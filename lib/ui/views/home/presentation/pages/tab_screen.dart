@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stock/core/constants/app_asset.dart';
 import 'package:stock/ui/views/home/presentation/pages/home_screen.dart';
 import 'package:stock/ui/views/home/presentation/widgets/bottom_navbar.dart';
@@ -43,34 +44,37 @@ class _TabViewState extends State<TabView> {
       (child == null && _selectedIndex == 3) ? const HomeScreen() : child,
       (child == null && _selectedIndex == 4) ? const HomeScreen() : child,
     ];
-    return Scaffold(
-      body: Center(child: _widgetOptions.elementAt(_selectedIndex!)),
-      bottomNavigationBar: FABBottomAppBar(
-        notchedShape: const CircularNotchedRectangle(),
-        onTabSelected: _onItemTapped,
-        currentIndex: _selectedIndex,
-        items: [
-          FABBottomAppBarItem(
-            activeIcon: AppAsset.homeActiveIcon,
-            inActiveIcon: AppAsset.homeInactiveIcon,
-          ),
-          FABBottomAppBarItem(
-            activeIcon: AppAsset.mapInactiveIcon,
-            inActiveIcon: AppAsset.mapInactiveIcon,
-          ),
-          FABBottomAppBarItem(
-            activeIcon: AppAsset.tradeActiveIcon,
-            inActiveIcon: AppAsset.tradeActiveIcon,
-          ),
-          FABBottomAppBarItem(
-            activeIcon: AppAsset.marketActiveIcon,
-            inActiveIcon: AppAsset.marketInactiveIcon,
-          ),
-          FABBottomAppBarItem(
-            activeIcon: AppAsset.accountActiveIcon,
-            inActiveIcon: AppAsset.accountInactiveIcon,
-          ),
-        ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark,
+      child: Scaffold(
+        body: Center(child: _widgetOptions.elementAt(_selectedIndex!)),
+        bottomNavigationBar: FABBottomAppBar(
+          notchedShape: const CircularNotchedRectangle(),
+          onTabSelected: _onItemTapped,
+          currentIndex: _selectedIndex,
+          items: [
+            FABBottomAppBarItem(
+              activeIcon: AppAsset.homeActiveIcon,
+              inActiveIcon: AppAsset.homeInactiveIcon,
+            ),
+            FABBottomAppBarItem(
+              activeIcon: AppAsset.mapInactiveIcon,
+              inActiveIcon: AppAsset.mapInactiveIcon,
+            ),
+            FABBottomAppBarItem(
+              activeIcon: AppAsset.tradeActiveIcon,
+              inActiveIcon: AppAsset.tradeActiveIcon,
+            ),
+            FABBottomAppBarItem(
+              activeIcon: AppAsset.marketActiveIcon,
+              inActiveIcon: AppAsset.marketInactiveIcon,
+            ),
+            FABBottomAppBarItem(
+              activeIcon: AppAsset.accountActiveIcon,
+              inActiveIcon: AppAsset.accountInactiveIcon,
+            ),
+          ],
+        ),
       ),
     );
   }
