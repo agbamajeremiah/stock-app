@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.splashView,
+      initialRoute: Routes.loginView,
       onGenerateRoute: generateRoute,
     );
   }

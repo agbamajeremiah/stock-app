@@ -1,4 +1,6 @@
 class AppAsset {
+  static const String logo = 'assets/images/logo.svg';
+
   static const String accountActiveIcon = 'assets/icons/account_active.svg';
   static const String accountInactiveIcon = 'assets/icons/account_inactive.svg';
   static const String homeInactiveIcon = 'assets/icons/home_inactive.svg';
