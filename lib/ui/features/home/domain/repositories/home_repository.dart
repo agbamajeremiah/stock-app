@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:stock/core/errors/failure.dart';
-import 'package:stock/ui/features/home/data/models/stock_model.dart';
+import 'package:stock/ui/features/home/domain/entities/stock_entity.dart';
 
 abstract class HomeRepository {
-  Future<Either<Failure, List<StockModel>>> getAllStocks();
+  Future<Either<Failure, List<StockEntity>>> getAllStocks();
 }

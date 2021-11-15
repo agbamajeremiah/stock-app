@@ -8,6 +8,8 @@ import 'package:stock/ui/features/home/presentation/providers/home_provider.dart
 import 'package:stock/ui/features/home/presentation/widgets/single_market_widget.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
 import 'package:stock/ui/shared/styles/fonts.dart';
+import 'package:stock/ui/shared/ui_helpers.dart';
+import 'package:stock/ui/shared/widgets/loader.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -127,13 +129,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Gap(20),
                       Consumer<HomeProvider>(
                         builder: (context, provider, child) {
-                          return Column(
-                            children: const [
-                              SingleMarketWidget(),
-                              SingleMarketWidget(),
-                              SingleMarketWidget(),
-                            ],
-                          );
+                          return provider.stockList == null
+                              ? Padding(
+                                  padding: EdgeInsets.only(
+                                      top: screenHeight(context) * 0.12),
+                                  child: const Center(
+                                    child: AppLoader(
+                                      color: AppColors.primaryColor,
+                                    ),
+                                  ),
+                                )
+                              : ListView.builder(
+                                  itemCount: provider.stockList!.length,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, child) {
+                                    return const SingleMarketWidget();
+                                  },
+                                );
                         },
                       )
                     ],
