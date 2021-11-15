@@ -97,7 +97,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           CustomText(
                             'Hello!',
                             color: AppColors.primaryColor,
-                            fontSize: 20,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w700,
                           ),
                           BodyText('Login to your account'),
                           const Gap(20),
@@ -135,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           const Gap(5),
                           Align(
                             alignment: Alignment.centerRight,
-                            child: BodyText(
+                            child: SmallText(
                               'FORGOT PASSWORD?',
                               color: AppColors.secondaryColor,
                             ),
