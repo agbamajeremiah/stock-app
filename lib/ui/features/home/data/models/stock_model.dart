@@ -1,5 +1,5 @@
-class TickerModel {
-  TickerModel({
+class StockModel {
+  StockModel({
     required this.ticker,
     required this.name,
     required this.market,
@@ -17,7 +17,7 @@ class TickerModel {
   final bool? active;
   final String? currencyName;
 
-  factory TickerModel.fromMap(Map<String, dynamic> json) => TickerModel(
+  factory StockModel.fromMap(Map<String, dynamic> json) => StockModel(
         ticker: json["ticker"],
         name: json["name"],
         market: json["market"],
@@ -38,13 +38,13 @@ class TickerModel {
       };
 }
 
-class TickerModelList {
-  final List<TickerModel> tickerList;
+class StockModelList {
+  final List<StockModel> tickerList;
 
-  TickerModelList({required this.tickerList});
+  StockModelList({required this.tickerList});
 
-  factory TickerModelList.fromJson(List parsedJson) {
-    var list = parsedJson.map((i) => TickerModel.fromMap(i)).toList();
-    return TickerModelList(tickerList: list);
+  factory StockModelList.fromJson(List parsedJson) {
+    var list = parsedJson.map((i) => StockModel.fromMap(i)).toList();
+    return StockModelList(tickerList: list);
   }
 }

@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:stock/core/errors/error.dart';
 import 'package:stock/core/errors/failure.dart';
 import 'package:stock/ui/features/home/data/datasources/home_remote_datasource.dart';
-import 'package:stock/ui/features/home/data/models/ticker_model.dart';
+import 'package:stock/ui/features/home/data/models/stock_model.dart';
 import 'package:stock/ui/features/home/domain/repositories/home_repository.dart';
 
 @LazySingleton(as: HomeRepository)
@@ -17,7 +17,7 @@ class HomeRepositoryImpl implements HomeRepository {
   final HomeRemoteDatasource homeRemoteDatasource;
 
   @override
-  Future<Either<Failure, List<TickerModel>>> getAllStocks() async {
+  Future<Either<Failure, List<StockModel>>> getAllStocks() async {
     try {
       final response = await homeRemoteDatasource.getAllStocks();
       return Right(response);
