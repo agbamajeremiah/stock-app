@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stock/ui/views/shared/styles/colors.dart';
+import 'package:stock/ui/shared/styles/colors.dart';
 
 /// Base text with black color and letter spacing set
 class StockTextBase extends StatelessWidget {

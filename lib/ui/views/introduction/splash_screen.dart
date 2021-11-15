@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:stock/core/constants/app_asset.dart';
-import 'package:stock/ui/views/shared/styles/colors.dart';
 import 'package:lottie/lottie.dart';
-import 'package:stock/ui/views/shared/styles/fonts.dart';
+import 'package:stock/ui/shared/styles/colors.dart';
+import 'package:stock/ui/shared/styles/fonts.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
