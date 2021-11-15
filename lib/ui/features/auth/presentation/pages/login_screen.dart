@@ -7,12 +7,12 @@ import 'package:provider/provider.dart';
 import 'package:stock/core/constants/app_asset.dart';
 import 'package:stock/core/dependency/injection_container.dart';
 import 'package:stock/core/utils/form_validation.dart';
+import 'package:stock/ui/features/auth/presentation/providers/auth_provider.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
 import 'package:stock/ui/shared/styles/fonts.dart';
 import 'package:stock/ui/shared/ui_helpers.dart';
 import 'package:stock/ui/shared/widgets/expanded_button.dart';
 import 'package:stock/ui/shared/widgets/form_input_field.dart';
-import 'package:stock/ui/views/auth/presentation/providers/auth_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stock/core/constants/routes.dart';
 import 'package:stock/core/errors/failure.dart';
-import 'package:stock/ui/views/auth/domain/repositories/auth_repository.dart';
+import 'package:stock/ui/features/auth/domain/repositories/auth_repository.dart';
 
 @lazySingleton
 class AuthProvider extends ChangeNotifier {

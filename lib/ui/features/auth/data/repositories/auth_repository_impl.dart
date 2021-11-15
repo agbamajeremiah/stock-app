@@ -3,8 +3,8 @@ import 'package:injectable/injectable.dart';
 import 'package:stock/core/errors/error.dart';
 import 'package:stock/core/errors/failure.dart';
 import 'package:stock/core/errors/logger.dart';
-import 'package:stock/ui/views/auth/data/datasources/auth_remote_datasource.dart';
-import 'package:stock/ui/views/auth/domain/repositories/auth_repository.dart';
+import 'package:stock/ui/features/auth/data/datasources/auth_remote_datasource.dart';
+import 'package:stock/ui/features/auth/domain/repositories/auth_repository.dart';
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {

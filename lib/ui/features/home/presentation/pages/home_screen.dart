@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 import 'package:stock/core/constants/app_asset.dart';
+import 'package:stock/core/dependency/injection_container.dart';
+import 'package:stock/ui/features/home/presentation/providers/home_provider.dart';
+import 'package:stock/ui/features/home/presentation/widgets/single_market_widget.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
 import 'package:stock/ui/shared/styles/fonts.dart';
-import 'package:stock/ui/views/home/presentation/widgets/single_market_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  void _fetchStocks() async {
+    await sl<HomeProvider>().getAllStocks(context);
+  }
+
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, _fetchStocks);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                    'Jogn Doe',
+                    'John Doe',
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
                     color: AppColors.black,
@@ -107,12 +125,16 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       const Gap(20),
-                      Column(
-                        children: const [
-                          SingleMarketWidget(),
-                          SingleMarketWidget(),
-                          SingleMarketWidget(),
-                        ],
+                      Consumer<HomeProvider>(
+                        builder: (context, provider, child) {
+                          return Column(
+                            children: const [
+                              SingleMarketWidget(),
+                              SingleMarketWidget(),
+                              SingleMarketWidget(),
+                            ],
+                          );
+                        },
                       )
                     ],
                   ),

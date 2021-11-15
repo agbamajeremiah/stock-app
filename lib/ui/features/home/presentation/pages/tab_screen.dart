@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:stock/core/constants/app_asset.dart';
-import 'package:stock/ui/views/home/presentation/pages/home_screen.dart';
-import 'package:stock/ui/views/home/presentation/widgets/bottom_navbar.dart';
+import 'package:stock/ui/features/home/presentation/pages/home_screen.dart';
+import 'package:stock/ui/features/home/presentation/widgets/bottom_navbar.dart';
 
 class TabView extends StatefulWidget {
   final TabViewParams? params;

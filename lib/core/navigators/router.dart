@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stock/core/constants/routes.dart';
-import 'package:stock/ui/views/auth/presentation/pages/login_screen.dart';
-import 'package:stock/ui/views/home/presentation/pages/market_details.dart';
-import 'package:stock/ui/views/home/presentation/pages/tab_screen.dart';
-import 'package:stock/ui/views/introduction/splash_screen.dart';
+import 'package:stock/ui/features/auth/presentation/pages/login_screen.dart';
+import 'package:stock/ui/features/home/presentation/pages/market_details.dart';
+import 'package:stock/ui/features/home/presentation/pages/tab_screen.dart';
+import 'package:stock/ui/features/introduction/splash_screen.dart';
 
 /// Generate routes for navigation
 Route<dynamic> generateRoute(RouteSettings settings) {

@@ -7,7 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:stock/core/constants/routes.dart';
 import 'package:stock/core/dependency/injection_container.dart';
 import 'package:stock/core/navigators/router.dart';
-import 'package:stock/ui/views/auth/presentation/providers/auth_provider.dart';
+import 'package:stock/ui/features/auth/presentation/providers/auth_provider.dart';
+import 'package:stock/ui/features/home/presentation/providers/home_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,9 @@ void main() async {
         providers: [
           ChangeNotifierProvider(
             create: (_) => sl<AuthProvider>(),
+          ),
+          ChangeNotifierProvider(
+            create: (_) => sl<HomeProvider>(),
           ),
         ],
         child: const MyApp(),
@@ -41,7 +45,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.splashView,
+      initialRoute: Routes.tabView,
       onGenerateRoute: generateRoute,
     );
   }
