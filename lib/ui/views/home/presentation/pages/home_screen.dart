@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:stock/core/constants/app_asset.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
 import 'package:stock/ui/shared/styles/fonts.dart';
+import 'package:stock/ui/views/home/presentation/widgets/single_market_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -108,9 +109,9 @@ class HomeScreen extends StatelessWidget {
                       const Gap(20),
                       Column(
                         children: const [
-                          SingleMerketWidget(),
-                          SingleMerketWidget(),
-                          SingleMerketWidget(),
+                          SingleMarketWidget(),
+                          SingleMarketWidget(),
+                          SingleMarketWidget(),
                         ],
                       )
                     ],
@@ -119,57 +120,6 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SingleMerketWidget extends StatelessWidget {
-  const SingleMerketWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        print("yes");
-      },
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 15),
-        padding: const EdgeInsets.symmetric(
-          vertical: 20,
-          horizontal: 20,
-        ),
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(7),
-          border: Border.all(color: Colors.grey[300]!),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(
-              'Agilent Technologies Inc.',
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-            ),
-            const Gap(5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SmallText(
-                  'Nvidia',
-                  color: AppColors.grey,
-                ),
-                SmallText(
-                  'USD',
-                  color: AppColors.black,
-                ),
-              ],
-            ),
-          ],
         ),
       ),
     );
