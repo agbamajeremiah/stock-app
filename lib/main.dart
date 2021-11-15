@@ -4,9 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:stock/core/constants/routes.dart';
+import 'package:stock/core/dependency/injection_container.dart';
 import 'package:stock/core/navigators/router.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
   overrideNavColors();
   runApp(
     DevicePreview(
