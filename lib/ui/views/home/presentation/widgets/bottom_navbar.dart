@@ -76,7 +76,6 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
     int? index,
     ValueChanged<int?>? onPressed,
   }) {
-    var color = _selectedIndex == index ? widget.selectedColor : widget.color;
     var icon = _selectedIndex == index ? item.activeIcon : item.inActiveIcon;
     return Expanded(
       child: SizedBox(
@@ -90,9 +89,12 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
-                  height: 21,
-                  width: 21,
-                  child: SvgPicture.asset(icon!, color: color),
+                  width: index == 2 ? 45 : 20,
+                  height: index == 2 ? 45 : 20,
+                  child: SvgPicture.asset(
+                    icon!,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ],
             ),

@@ -51,24 +51,24 @@ class _TabViewState extends State<TabView> {
         currentIndex: _selectedIndex,
         items: [
           FABBottomAppBarItem(
-            activeIcon: AppAsset.marketActiveIcon,
-            inActiveIcon: AppAsset.marketInactiveIcon,
+            activeIcon: AppAsset.homeActiveIcon,
+            inActiveIcon: AppAsset.homeInactiveIcon,
+          ),
+          FABBottomAppBarItem(
+            activeIcon: AppAsset.mapInactiveIcon,
+            inActiveIcon: AppAsset.mapInactiveIcon,
+          ),
+          FABBottomAppBarItem(
+            activeIcon: AppAsset.tradeActiveIcon,
+            inActiveIcon: AppAsset.tradeActiveIcon,
           ),
           FABBottomAppBarItem(
             activeIcon: AppAsset.marketActiveIcon,
             inActiveIcon: AppAsset.marketInactiveIcon,
           ),
           FABBottomAppBarItem(
-            activeIcon: AppAsset.marketActiveIcon,
-            inActiveIcon: AppAsset.marketInactiveIcon,
-          ),
-          FABBottomAppBarItem(
-            activeIcon: AppAsset.marketActiveIcon,
-            inActiveIcon: AppAsset.marketInactiveIcon,
-          ),
-          FABBottomAppBarItem(
-            activeIcon: AppAsset.marketActiveIcon,
-            inActiveIcon: AppAsset.marketInactiveIcon,
+            activeIcon: AppAsset.accountActiveIcon,
+            inActiveIcon: AppAsset.accountInactiveIcon,
           ),
         ],
       ),
