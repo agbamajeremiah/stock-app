@@ -19,6 +19,16 @@ class ServerFailure extends Failure {
   List<Object> get props => [message];
 }
 
+class CustomKnownFailure extends Failure {
+  final String message;
+  const CustomKnownFailure({
+    required this.message,
+  });
+
+  @override
+  List<Object> get props => [message];
+}
+
 class CacheFailure extends Failure {
   @override
   List<Object> get props => [];
@@ -59,6 +69,8 @@ class FailureToMessage {
     if (failure is NoInternetFailure) {
       message = 'Please check your internet connection and try again';
     } else if (failure is ServerFailure) {
+      message = failure.message;
+    } else if (failure is CustomKnownFailure) {
       message = failure.message;
     } else if (failure is CacheFailure || failure is NoEntityFailure) {
       message = 'Entity no found, please try again';
