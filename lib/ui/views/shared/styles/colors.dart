@@ -8,6 +8,9 @@ class AppColors {
   static const white = Color(0xffFFFFFF);
   static const red = Color(0xffDD0707);
 
+  static const textColor = Color(0xff03314B);
+  static const grey = Colors.grey;
+
   // ignore: constant_identifier_names
   static const Map<int, Color> COLOR_SCRATCH = {
     50: Color.fromRGBO(7, 45, 114, .1),
