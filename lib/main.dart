@@ -51,10 +51,4 @@ void overrideNavColors() {
       ),
     );
   }
-
-  /// Set DeviceOrientation
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
 }
