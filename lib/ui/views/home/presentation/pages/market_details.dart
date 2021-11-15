@@ -69,93 +69,21 @@ class MarketDetailScreen extends StatelessWidget {
                 color: AppColors.black,
               ),
               const Gap(10),
-              Container(
-                margin: const EdgeInsets.only(bottom: 2),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: SmallText(
-                        'Symbol: ',
-                        color: AppColors.black,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: SmallText(
-                        'AAP',
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                  ],
-                ),
+              const StockElementWidget(
+                field: 'Symbol: ',
+                value: 'AAP',
               ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 2),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: SmallText(
-                        'Exchange: ',
-                        color: AppColors.black,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: SmallText(
-                        'Nasdaq Global Select',
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                  ],
-                ),
+              const StockElementWidget(
+                field: 'Exchange: ',
+                value: 'Nasdaq Global Select',
               ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 2),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: SmallText(
-                        'Industry: ',
-                        color: AppColors.black,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: SmallText(
-                        'Computer Hardware',
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                  ],
-                ),
+              const StockElementWidget(
+                field: 'Industry: ',
+                value: 'Computer Hardware',
               ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 2),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: SmallText(
-                        'Sector: ',
-                        color: AppColors.black,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: SmallText(
-                        'Technology',
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                  ],
-                ),
+              const StockElementWidget(
+                field: 'Sector',
+                value: 'Technology',
               ),
               const Gap(20),
               Container(
@@ -198,7 +126,7 @@ class MarketDetailScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const Gap(20),
+              const Gap(30),
               SizedBox(
                 height: 50,
                 child: Row(
@@ -240,6 +168,43 @@ class MarketDetailScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class StockElementWidget extends StatelessWidget {
+  final String field;
+  final String value;
+
+  const StockElementWidget({
+    Key? key,
+    required this.field,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 2),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: SmallText(
+              field,
+              color: AppColors.black,
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: SmallText(
+              value,
+              color: AppColors.black,
+              fontWeight: FontWeight.w500,
+            ),
+          )
+        ],
       ),
     );
   }
