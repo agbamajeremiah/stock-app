@@ -3,9 +3,11 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:stock/core/constants/routes.dart';
 import 'package:stock/core/dependency/injection_container.dart';
 import 'package:stock/core/navigators/router.dart';
+import 'package:stock/ui/views/auth/presentation/providers/auth_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +16,14 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => const MyApp(),
+      builder: (context) => MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => sl<AuthProvider>(),
+          ),
+        ],
+        child: const MyApp(),
+      ),
     ),
   );
 }
