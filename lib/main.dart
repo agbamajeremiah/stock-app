@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.loginView,
+      initialRoute: Routes.tabView,
       onGenerateRoute: generateRoute,
     );
   }
@@ -41,11 +40,9 @@ void overrideNavColors() {
   if (Platform.isAndroid) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        /// Set StatusBar Customization.
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.dark,
-
         systemNavigationBarColor: Colors.transparent,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
