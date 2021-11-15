@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:stock/core/constants/routes.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
 import 'package:stock/ui/shared/styles/fonts.dart';
 
@@ -11,9 +12,10 @@ class SingleMarketWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print("yes");
-      },
+      onTap: () => Navigator.pushNamed(
+        context,
+        Routes.marketDetailView,
+      ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 15),
         padding: const EdgeInsets.symmetric(
