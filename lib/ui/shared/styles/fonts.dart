@@ -133,7 +133,7 @@ class H1 extends StockTextBold {
           overflow: overflow,
           maxLines: maxLines,
           style: const TextStyle(
-            fontSize: 50,
+            fontSize: 40,
             color: AppColors.textColor,
             fontWeight: FontWeight.w700,
           ).merge(style),

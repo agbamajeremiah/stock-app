@@ -1,18 +1,33 @@
 import 'dart:io';
-
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:stock/core/constants/routes.dart';
+import 'package:stock/core/dependency/injection_container.dart';
 import 'package:stock/core/navigators/router.dart';
+import 'package:stock/ui/features/auth/presentation/providers/auth_provider.dart';
+import 'package:stock/ui/features/home/presentation/providers/home_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
   overrideNavColors();
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(),
+      enabled: false,
+      builder: (context) => MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => sl<AuthProvider>(),
+          ),
+          ChangeNotifierProvider(
+            create: (_) => sl<HomeProvider>(),
+          ),
+        ],
+        child: const MyApp(),
+      ),
     ),
   );
 }
@@ -30,7 +45,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.loginView,
+      initialRoute: Routes.splashView,
       onGenerateRoute: generateRoute,
     );
   }
@@ -41,11 +56,9 @@ void overrideNavColors() {
   if (Platform.isAndroid) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        /// Set StatusBar Customization.
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.dark,
-
         systemNavigationBarColor: Colors.transparent,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
