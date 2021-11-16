@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:stock/ui/features/home/domain/entities/stock_entity.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
 import 'package:stock/ui/shared/styles/fonts.dart';
 
 class MarketDetailScreen extends StatelessWidget {
-  const MarketDetailScreen({Key? key}) : super(key: key);
+  final StockEntity params;
+  const MarketDetailScreen({
+    Key? key,
+    required this.params,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

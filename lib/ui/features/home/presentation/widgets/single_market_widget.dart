@@ -18,6 +18,7 @@ class SingleMarketWidget extends StatelessWidget {
       onTap: () => Navigator.pushNamed(
         context,
         Routes.marketDetailView,
+        arguments: item,
       ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 15),
