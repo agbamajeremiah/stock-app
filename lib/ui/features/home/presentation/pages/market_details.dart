@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 import 'package:stock/core/dependency/injection_container.dart';
+import 'package:stock/core/utils/currency_util.dart';
 import 'package:stock/ui/features/home/domain/entities/stock_entity.dart';
 import 'package:stock/ui/features/home/presentation/providers/home_provider.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
@@ -151,7 +152,8 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                               ),
                               const Gap(5),
                               BodyText(
-                                '\$${provider.stockDetailEntity!.marketcap}',
+                                CurrencyUtil.formatAmountInt(
+                                    provider.stockDetailEntity!.marketcap),
                                 color: AppColors.black,
                               )
                             ],
