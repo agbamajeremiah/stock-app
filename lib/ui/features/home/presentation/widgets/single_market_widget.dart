@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:stock/core/constants/routes.dart';
+import 'package:stock/ui/features/home/domain/entities/stock_entity.dart';
 import 'package:stock/ui/shared/styles/colors.dart';
 import 'package:stock/ui/shared/styles/fonts.dart';
 
 class SingleMarketWidget extends StatelessWidget {
+  final StockEntity item;
   const SingleMarketWidget({
     Key? key,
+    required this.item,
   }) : super(key: key);
 
   @override
@@ -31,7 +34,7 @@ class SingleMarketWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomText(
-              'Agilent Technologies Inc.',
+              item.name,
               color: Colors.black,
               fontWeight: FontWeight.w600,
             ),
@@ -40,11 +43,11 @@ class SingleMarketWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SmallText(
-                  'Nvidia',
+                  item.ticker,
                   color: AppColors.grey,
                 ),
                 SmallText(
-                  'USD',
+                  item.currencyName!.toUpperCase(),
                   color: AppColors.black,
                 ),
               ],

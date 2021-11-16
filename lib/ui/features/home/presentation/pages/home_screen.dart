@@ -143,8 +143,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   itemCount: provider.stockList!.length,
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
-                                  itemBuilder: (context, child) {
-                                    return const SingleMarketWidget();
+                                  itemBuilder: (context, index) {
+                                    return SingleMarketWidget(
+                                      item: provider.stockList![index],
+                                    );
                                   },
                                 );
                         },
