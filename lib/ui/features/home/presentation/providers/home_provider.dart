@@ -9,10 +9,11 @@ class HomeProvider extends ChangeNotifier {
   final HomeRepository homeRepository;
   List<StockEntity>? stockList;
   StockDetailEntity? stockDetailEntity;
+  bool isBusy = false;
 
   HomeProvider({required this.homeRepository});
   Future<void> getAllStocks(BuildContext context) async {
-    if (true) {
+    if (stockList == null) {
       final response = await homeRepository.getAllStocks();
       response.fold(
         (l) {},
@@ -25,15 +26,19 @@ class HomeProvider extends ChangeNotifier {
   }
 
   Future<void> getSingleStockDetails({required String ticker}) async {
-    if (true) {
-      final response = await homeRepository.getStockDetail(ticker: ticker);
-      response.fold(
-        (l) {},
-        (r) {
-          stockDetailEntity = r;
-          notifyListeners();
-        },
-      );
-    }
+    setBusy(true);
+    final response = await homeRepository.getStockDetail(ticker: ticker);
+    response.fold(
+      (l) {},
+      (r) {
+        stockDetailEntity = r;
+      },
+    );
+    setBusy(false);
+  }
+
+  void setBusy(bool value) {
+    isBusy = value;
+    notifyListeners();
   }
 }
