@@ -16,7 +16,7 @@ void main() async {
   overrideNavColors();
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      enabled: false,
       builder: (context) => MultiProvider(
         providers: [
           ChangeNotifierProvider(
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.tabView,
+      initialRoute: Routes.splashView,
       onGenerateRoute: generateRoute,
     );
   }
