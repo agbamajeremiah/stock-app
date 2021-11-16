@@ -35,8 +35,9 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.white,
         elevation: 0,
         leading: GestureDetector(
           onTap: () => Navigator.pop(context),
