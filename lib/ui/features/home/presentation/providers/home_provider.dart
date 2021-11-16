@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
+import 'package:stock/ui/features/home/domain/entities/stock_detail_entity.dart';
 import 'package:stock/ui/features/home/domain/entities/stock_entity.dart';
 import 'package:stock/ui/features/home/domain/repositories/home_repository.dart';
 
@@ -7,6 +8,7 @@ import 'package:stock/ui/features/home/domain/repositories/home_repository.dart'
 class HomeProvider extends ChangeNotifier {
   final HomeRepository homeRepository;
   List<StockEntity>? stockList;
+  StockDetailEntity? stockDetailEntity;
 
   HomeProvider({required this.homeRepository});
   Future<void> getAllStocks(BuildContext context) async {
@@ -16,6 +18,19 @@ class HomeProvider extends ChangeNotifier {
         (l) {},
         (r) {
           stockList = r;
+          notifyListeners();
+        },
+      );
+    }
+  }
+
+  Future<void> getSingleStockDetails({required String ticker}) async {
+    if (true) {
+      final response = await homeRepository.getStockDetail(ticker: ticker);
+      response.fold(
+        (l) {},
+        (r) {
+          stockDetailEntity = r;
           notifyListeners();
         },
       );
