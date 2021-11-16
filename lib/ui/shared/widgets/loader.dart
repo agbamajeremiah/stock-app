@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stock/ui/shared/custom_circukar_progress_bar.dart';
+import 'package:stock/ui/shared/custom_circular_progress_bar.dart';
 
 class AppLoader extends StatelessWidget {
   final Color? color;
