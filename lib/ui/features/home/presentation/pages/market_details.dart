@@ -65,24 +65,24 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                         ),
                         child: Center(
                           child: Image.network(
-                            "https://s3.polygon.io/logos/aapl/logo.png",
-                            height: 45,
-                            width: 45,
+                            provider.stockDetailEntity!.logo,
+                            height: 35,
+                            width: 35,
                           ),
                         ),
                       ),
-                      const Gap(10),
+                      const Gap(5),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomText(
-                            'Agilent Technologies Inc.',
+                            provider.stockDetailEntity!.name,
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
                           ),
                           const Gap(5),
                           SmallText(
-                            'Nvidia',
+                            provider.stockDetailEntity!.symbol,
                             color: AppColors.grey,
                           ),
                         ],
@@ -91,25 +91,25 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                   ),
                   const Gap(10),
                   BodyText(
-                    'Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications.',
+                    provider.stockDetailEntity!.description,
                     color: AppColors.black,
                   ),
                   const Gap(10),
-                  const StockElementWidget(
+                  StockElementWidget(
                     field: 'Symbol: ',
-                    value: 'AAP',
+                    value: provider.stockDetailEntity!.symbol,
                   ),
-                  const StockElementWidget(
+                  StockElementWidget(
                     field: 'Exchange: ',
-                    value: 'Nasdaq Global Select',
+                    value: provider.stockDetailEntity!.exchange,
                   ),
-                  const StockElementWidget(
+                  StockElementWidget(
                     field: 'Industry: ',
-                    value: 'Computer Hardware',
+                    value: provider.stockDetailEntity!.industry,
                   ),
-                  const StockElementWidget(
+                  StockElementWidget(
                     field: 'Sector',
-                    value: 'Technology',
+                    value: provider.stockDetailEntity!.sector,
                   ),
                   const Gap(20),
                   Container(
@@ -127,7 +127,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                         Row(
                           children: [
                             Image.network(
-                              "https://s3.polygon.io/logos/aapl/logo.png",
+                              provider.stockDetailEntity!.logo,
                               height: 30,
                               width: 30,
                             ),
@@ -146,7 +146,7 @@ class _MarketDetailScreenState extends State<MarketDetailScreen> {
                         ),
                         const Gap(5),
                         BodyText(
-                          '\$908316631180',
+                          '\$${provider.stockDetailEntity!.marketcap}',
                           color: AppColors.black,
                         )
                       ],
